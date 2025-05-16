@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Studi - Login</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <h2>Studi Extension</h2>
+
+    <div id="login-selection">
+      <button id="teacherLoginBtn">Teacher Login</button>
+      <button id="studentLoginBtn">Student Login</button>
+    </div>
+
+    <div id="studentSection" style="display: none">
+      <h3>Enter Exam Code</h3>
+      <input
+        type="text"
+        id="sessionCodeInput"
+        placeholder="Enter session code"
+      />
+      <button id="startExamBtn">Start Exam</button>
+      <p id="studentMessage"></p>
+    </div>
+
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>
