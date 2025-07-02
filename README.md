@@ -1,68 +1,105 @@
-# Studi - Chrome Extension to Prevent Cheating in Online Exams
+# 🚀 Studi: Anti-Cheating Chrome Extension for Online Exams
 
-## Overview
-Studi is a Chrome extension designed for teachers to conduct secure online exams using platforms like Google Forms or any other websites. It restricts students from switching tabs or windows during the exam session to minimize cheating.
+<p align="center">
+  <img src="https://img.shields.io/badge/status-under%20construction-yellow.svg" alt="Status: Under Construction">
+  <img src="https://img.shields.io/badge/platform-Chrome-brightgreen.svg" alt="Platform: Chrome">
+</p>
 
----
-
-## Features
-- **Teacher Login:** Create an exam session with a unique code and set the exam duration.
-- **Student Login:** Enter the exam session code to start the exam timer.
-- **Tab/Window Lock:** Once the exam starts, students cannot switch tabs or windows until the timer expires.
-- **Popup-based UI:** Both teacher and student interfaces operate within the Chrome extension popup.
+<p align="center">
+  <em>A simple yet effective Chrome extension to help maintain academic integrity during online assessments.</em>
+</p>
 
 ---
 
-## Folder Structure
+### ⚠️ Under Construction
+**Please Note:** This project is currently under active development. Some features may not be fully implemented, and you might encounter bugs. Contributions and feedback are highly welcome!
+
+---
+
+## 📖 Overview
+
+Studi is a Chrome extension designed for educators and institutions to create a more secure online examination environment. It prevents students from switching tabs or opening new windows once an exam session has started, thereby minimizing opportunities for cheating. It's a lightweight and easy-to-use tool for any online testing platform, like Google Forms, Moodle, or custom-built exam websites.
+
+## ✨ Key Features
+
+-   **👨‍🏫 Teacher Dashboard:** Easily create and manage exam sessions.
+-   **⏱️ Timed Sessions:** Set a specific duration for each exam.
+-   **🔑 Secure Session Codes:** Generate unique codes for students to join an exam.
+-   **🔒 Tab & Window Locking:** Restricts students to the exam tab for the entire duration.
+-   **🚨 Instant Alerts:** Notifies students if they attempt to navigate away from the exam.
+-   **💻 Cross-Platform:** Works on any website or online assessment platform.
+
+---
+
+## 📂 Project Structure
+
+Here is the file structure for the Studi extension:
+
+```
 Studi/
 ├── manifest.json
 ├── icons/
-│ ├── icon16.png
-│ ├── icon48.png
-│ └── icon128.png
+│   ├── icon16.png
+│   ├── icon48.png
+│   └── icon128.png
 ├── pages/
-│ ├── login.html
-│ └── teacher.html
+│   ├── login.html
+│   └── teacher.html
 ├── scripts/
-│ ├── background.js
-│ ├── content.js
-│ ├── login.js
-│ └── teacher.js
+│   ├── background.js
+│   ├── content.js
+│   ├── login.js
+│   └── teacher.js
 └── styles/
-└── style.css
+    └── style.css
+```
 
 ---
 
-## Installation and Setup
+## 🛠️ Installation and Usage
 
-1. **Download or Clone the Repository**
+### 1. Get the Extension Files
 
-   Download the `Studi` folder to your computer.
+Clone or download this repository to your local machine.
 
-2. **Load the Extension in Chrome**
+```bash
+git clone [https://github.com/your-username/extension-nocheat.git](https://github.com/your-username/extension-nocheat.git)
+```
 
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable **Developer mode** (toggle switch in the top right corner).
-   - Click **Load unpacked** and select the `Studi` folder.
-   - The extension icon should appear near the address bar.
+### 2. Load into Chrome
 
-3. **Using the Extension**
+1.  Open your Google Chrome browser and navigate to `chrome://extensions`.
+2.  Enable **"Developer mode"** using the toggle switch in the top-right corner.
+3.  Click on the **"Load unpacked"** button.
+4.  Select the `Studi` (or the root project) folder that you downloaded.
+5.  The **Studi** extension icon will now appear in your browser's toolbar.
 
-   - Click the Studi extension icon.
-   - Select **Teacher Login** to create an exam session.
-     - Enter the exam duration (in minutes).
-     - Click **Create Session** to generate a unique session code.
-   - Share the generated code with your students.
+### 3. How to Use
 
-   - Students open the extension and select **Student Login**.
-     - Enter the session code provided by the teacher.
-     - Click **Start Exam** to begin.
-     - The tab/window lock activates immediately to prevent switching.
+#### For Teachers:
 
-4. **During the Exam**
+1.  Click the Studi extension icon in your toolbar.
+2.  Select **"Teacher Login"**. This will open the teacher dashboard in a new tab.
+3.  Enter the desired **exam duration** in minutes.
+4.  Click **"Create Session"**. A unique session code will be generated.
+5.  Share this code with your students.
 
-   - Students are locked on the exam tab.
-   - Attempting to switch tabs or windows triggers an alert and forces focus back to the exam tab.
-   - The lock automatically ends after the session duration expires.
+#### For Students:
+
+1.  Navigate to the online exam page (e.g., Google Form).
+2.  Click the Studi extension icon.
+3.  Select **"Student Login"**.
+4.  Enter the session code provided by the teacher.
+5.  Click **"Start Exam"**. The tab will be locked, and the exam timer will begin.
+
+---
+
+## ⚙️ How It Works
+
+The extension's core logic is managed by a few key scripts:
+
+-   **`teacher.js` & `login.js`**: Handle the user interface for creating sessions and logging in. When a teacher creates a session, the details (code, duration) are saved using `chrome.storage`.
+-   **`content.js`**: This script is injected into the student's active exam tab. It listens for `blur` events, which occur when the user tries to switch tabs or windows.
+-   **`background.js`**: This service worker runs in the background. It listens for messages from the content script and enforces the tab-locking rules by monitoring tab and window focus changes, forcing the user back to the exam tab if they navigate away.
 
 ---
