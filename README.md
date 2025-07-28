@@ -12,7 +12,7 @@
 ---
 
 ### ⚠️ Under Construction
-**Please Note:** This project is currently under active development. Some features may not be fully implemented, and you might encounter bugs. Contributions and feedback are highly welcome!
+**Please Note:** This project is currently under active development. Some features may not be fully implemented, and you might encounter bugs. Feedback are highly welcome!
 
 ---
 
